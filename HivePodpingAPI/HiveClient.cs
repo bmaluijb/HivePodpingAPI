@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace HivePodpingAPI
 {
     public class HiveClient : HiveAPI
-	{
+    {
         private const string DATABASE_API = "database_api.";
         private List<string> _urls;
         private int _currentUrlIndex;
@@ -22,7 +22,7 @@ namespace HivePodpingAPI
         private void SwitchToNextUrl()
         {
             //this resets to 0 when we reach the end of the _urls collection
-            _currentUrlIndex = (_currentUrlIndex + 1) % _urls.Count; 
+            _currentUrlIndex = (_currentUrlIndex + 1) % _urls.Count;
             base.SetUrl(_urls[_currentUrlIndex]);
         }
 
@@ -143,9 +143,9 @@ namespace HivePodpingAPI
 
                 for (long blockNumber = lastBlockNumber + 1; blockNumber <= headBlockNumber; blockNumber++)
                 {
-					try
-					{
-                        JObject block =  CallApiWithFailover("condenser_api.get_block", new ArrayList { blockNumber });
+                    try
+                    {
+                        JObject block = CallApiWithFailover("condenser_api.get_block", new ArrayList { blockNumber });
                         var podpingBlocks = HandleBlock(block);
 
                         foreach (var podpingBlock in podpingBlocks)
@@ -175,10 +175,10 @@ namespace HivePodpingAPI
                         await Task.Delay(350); //wait to give the API some room and not to overload it
                         Console.WriteLine($"Processed block {blockNumber}");
                     }
-					catch (Exception ex)
-					{
-                        Console.WriteLine($"Exception processing {blockNumber}, " + ex.Message);                   
-					}
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Exception processing {blockNumber}, " + ex.Message);
+                    }
                 }
 
                 lastBlockNumber = headBlockNumber;
@@ -186,10 +186,47 @@ namespace HivePodpingAPI
             }
         }
 
-		public JObject get_dynamic_global_properties()
-		{
-			return call_api(DATABASE_API + MethodBase.GetCurrentMethod().Name);
-		}
+
+        public async IAsyncEnumerable<JObject> StreamPodpingBlocksAsStreamAsync(long lastBlockNumber = 1)
+        {
+            while (true)
+            {
+                JObject dynamicGlobalProperties = call_api("condenser_api.get_dynamic_global_properties");
+                long headBlockNumber = dynamicGlobalProperties["head_block_number"].Value<long>();
+
+                for (long blockNumber = lastBlockNumber + 1; blockNumber <= headBlockNumber; blockNumber++)
+                {
+                    List<JObject> podpingBlocks = null;
+                    try
+                    {
+                        JObject block = CallApiWithFailover("condenser_api.get_block", new ArrayList { blockNumber });
+                        podpingBlocks = HandleBlock(block);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Exception processing {blockNumber}, " + ex.Message);
+                    }
+
+                    if (podpingBlocks != null)
+                    {
+                        foreach (var podpingBlock in podpingBlocks)
+                        {
+                            yield return podpingBlock;
+                        }
+                    }
+
+                    await Task.Delay(350); //wait to give the API some room and not to overload it
+                }
+
+                lastBlockNumber = headBlockNumber;
+                await Task.Delay(3000); // Wait for 3 seconds before checking for new blocks
+            }
+        }
+
+        public JObject get_dynamic_global_properties()
+        {
+            return call_api(DATABASE_API + MethodBase.GetCurrentMethod().Name);
+        }
 
         #endregion
     }
