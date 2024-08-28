@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35209.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HivePodpingAPI", "HivePodpingAPI\HivePodpingAPI.csproj", "{FB689CF7-177B-4CC5-8BA7-2E8469F05CAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HivePodpingExample", "HivePodpingExample\HivePodpingExample.csproj", "{BF7E4141-9A92-426F-A818-0D04CEAB0E68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB689CF7-177B-4CC5-8BA7-2E8469F05CAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB689CF7-177B-4CC5-8BA7-2E8469F05CAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB689CF7-177B-4CC5-8BA7-2E8469F05CAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB689CF7-177B-4CC5-8BA7-2E8469F05CAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF7E4141-9A92-426F-A818-0D04CEAB0E68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF7E4141-9A92-426F-A818-0D04CEAB0E68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF7E4141-9A92-426F-A818-0D04CEAB0E68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF7E4141-9A92-426F-A818-0D04CEAB0E68}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {212A3330-D2F8-4C43-8A0B-AFD7C481DCD0}
+	EndGlobalSection
+EndGlobal
