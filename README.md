@@ -1,4 +1,4 @@
-# Hive.NET
+# HivePodpingAPI
 
 Interact with the Hive blockchain using the Hive JSON RPC API (https://developers.hive.io/apidefinitions/#block_api.get_block_range).
 
