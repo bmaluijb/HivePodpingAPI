@@ -18,8 +18,8 @@ namespace HivePodpingExample
             await foreach (var podpingBlock in hiveClient.StreamPodpingBlocksAsStreamAsync(lastBlockId))
             {
                 // Process each podping block as needed
-                Console.WriteLine($"Processed podping block: {podpingBlock}");
-
+                Console.WriteLine($"{podpingBlock["blockNumber"]} Processed podping block: {podpingBlock}");
+                
                 var iris = podpingBlock["iris"]?.ToObject<List<string>>() ?? new List<string>();
                 var urls = podpingBlock["urls"]?.ToObject<List<string>>() ?? new List<string>();
 

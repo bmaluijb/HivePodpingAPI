@@ -211,15 +211,17 @@ namespace HivePodpingAPI
                     {
                         foreach (var podpingBlock in podpingBlocks)
                         {
+                            // Add blockNumber to the podpingBlock
+                            podpingBlock["blockNumber"] = blockNumber;
                             yield return podpingBlock;
                         }
                     }
 
-                    await Task.Delay(350); //wait to give the API some room and not to overload it
+                    await Task.Delay(400); //wait to give the API some room and not to overload it
                 }
 
                 lastBlockNumber = headBlockNumber;
-                await Task.Delay(3000); // Wait for 3 seconds before checking for new blocks
+                await Task.Delay(3500); // Wait for 3 seconds before checking for new blocks
             }
         }
 

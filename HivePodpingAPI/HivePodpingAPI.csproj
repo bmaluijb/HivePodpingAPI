@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup Label="Globals">
-    <SccProjectName></SccProjectName>
-    <SccProvider></SccProvider>
-    <SccAuxPath></SccAuxPath>
-    <SccLocalPath></SccLocalPath>
-  </PropertyGroup>
-
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+	  <PackageId>HivePodpingAPI</PackageId>
+	  <Version>1.0.2</Version>
+	  <Authors>Barry Luijbregts</Authors>
+	  <Company>Podhome.fm</Company>
+	  <Description>Interact with the Hive blockchain using the Hive JSON RPC API to get Podpings</Description>
+	  <PackageTags>hive;podping;api;podcast</PackageTags>
+	  <RepositoryUrl>https://github.com/bmaluijb/HivePodpingAPI</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
