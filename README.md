@@ -2,7 +2,7 @@
 
 Interact with the Hive blockchain using the Hive JSON RPC API (https://developers.hive.io/apidefinitions/#block_api.get_block_range).
 
-Reference the project (or NuGet package) in your project and use the `HiveClient` class to interact with the Hive blockchain.)
+Reference the project (or NuGet package) in your project and use the `HiveClient` class to interact with the Hive blockchain to retrieve blocks that contain "Podpings" (see https://podping.org/ for more info)
 
 Here's an example:
 
