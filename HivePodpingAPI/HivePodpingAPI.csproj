@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
 	  <PackageId>HivePodpingAPI</PackageId>
-	  <Version>1.0.2</Version>
+	  <Version>1.0.3</Version>
 	  <Authors>Barry Luijbregts</Authors>
 	  <Company>Podhome.fm</Company>
 	  <Description>Interact with the Hive blockchain using the Hive JSON RPC API to get Podpings</Description>

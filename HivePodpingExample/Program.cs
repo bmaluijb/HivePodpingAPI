@@ -12,7 +12,7 @@ namespace HivePodpingExample
 
             //use your own HttpClient and list of addresses for flexibility
             var httpClient = new HttpClient();
-            var apiUrls = new List<string> { "https://api.hive.blog", "https://any.other.url" };
+            var apiUrls = new List<string> { "https://api.openhive.network", "https://api.hive.blog", "https://anyx.io", "https://api.deathwing.me" };
             var hiveClient = new HiveClient(httpClient, apiUrls);
 
             await foreach (var podpingBlock in hiveClient.StreamPodpingBlocksAsStreamAsync(lastBlockId))
