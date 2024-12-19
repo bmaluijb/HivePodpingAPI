@@ -217,7 +217,7 @@ namespace HivePodpingAPI
                         }
                     }
 
-                    await Task.Delay(350); //wait to give the API some room and not to overload it
+                    await Task.Delay(380); //wait to give the API some room and not to overload it
                 }
 
                 lastBlockNumber = headBlockNumber;

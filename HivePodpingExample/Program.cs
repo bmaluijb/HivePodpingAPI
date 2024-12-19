@@ -8,7 +8,7 @@ namespace HivePodpingExample
         {
             Console.WriteLine("Start reading those Podpings!");
 
-            long lastBlockId = 88430996; //for instance
+            long lastBlockId = 88631465; //for instance
 
             //use your own HttpClient and list of addresses for flexibility
             var httpClient = new HttpClient();
@@ -18,8 +18,10 @@ namespace HivePodpingExample
             await foreach (var podpingBlock in hiveClient.StreamPodpingBlocksAsStreamAsync(lastBlockId))
             {
                 // Process each podping block as needed
-                Console.WriteLine($"{podpingBlock["blockNumber"]} Processed podping block: {podpingBlock}");
-                
+                Console.WriteLine($"{podpingBlock["blockNumber"]}");
+                //Console.WriteLine($"{podpingBlock["blockNumber"]} Processed podping block: {podpingBlock}");
+
+
                 var iris = podpingBlock["iris"]?.ToObject<List<string>>() ?? new List<string>();
                 var urls = podpingBlock["urls"]?.ToObject<List<string>>() ?? new List<string>();
 
